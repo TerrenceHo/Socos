@@ -1,0 +1,2 @@
+variable = "Hi"
+print variable
