@@ -28,7 +28,7 @@ def timefunc2(interval_col):
     for hours in interval_col:
         if hours == "0 hours":
             h.append(0)
-        elif hours == "1 hours":
+        elif hours == "1 hours" or hours == "1 hour":
             h.append(1)
         elif hours == "2 hours":
             h.append(2)

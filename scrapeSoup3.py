@@ -4,7 +4,7 @@ import requests
 countynumber = 1#used to increment through counties
 statenumber = 2000#used to increment through states
 
-with open('countryData3.csv', 'w') as file:
+with open('countyData3.csv', 'w') as file:
     fieldnames = ['County Name','Unemployment Rate','Median Household Income','Pop. Below Poverty Line','Ratio of Income 80th vs 20th Percentile:','Banking Institutions Per 10000 Pop.','Household Spending <30% of income on housing','High-Speed Internet','Preschool Enrollment','On-time HS Graduation','Associate Degree or Higher','Violent Crime per 100000 Pop.','Youth Not In School Or Working','Primary Care Providers Per 100000 Pop.','Grocery Stores and Supermarkets per 10000 Pop.']
     
     writer = csv.DictWriter(file, fieldnames = fieldnames)
@@ -25,59 +25,73 @@ with open('countryData3.csv', 'w') as file:
         
         jobs = ''
         for x in results:
-            jobs += str(x['jobs']) + ' '
-        
+            if(x["year"]== "2015"):
+                jobs = str(x['jobs'])
+            
         wages = ''
         for x in results:
-            wages += str(x['wages']) + ' '
+            if(x['year']=='2015'):
+                wages = str(x['wages'])
         
         poverty = ''
         for x in results:
-            poverty += str(x['poverty']) + ' '
+            if(x["year"]== "2015"):
+                poverty = str(x['poverty'])
         
         inequality = ''
         for x in results:
-            inequality += str(x['inequality']) + ' '
+            if(x["year"]== "2015"):
+                inequality = str(x['inequality'])
         
         assets = ''
         for x in results:
-            assets += str(x['assets']) + ' '
+            if(x["year"]== "2015"):
+                assets = str(x['assets'])
         
         housing = ''
         for x in results:
-            housing += str(x['housing']) + ' '
+            if(x["year"]== "2015"):
+                housing = str(x['housing'])
         
         internet_pct = ''
         for x in results:
-            internet_pct += str(x['internet_pct']) + ' '
+            if(x["year"]== "2015"):
+                internet_pct = str(x['internet_pct'])
         
         preschool = ''
         for x in results:
-            preschool += str(x['preschool']) + ' '
+            if(x["year"]== "2015"):
+                preschool = str(x['preschool'])
         
         k12 = ''
         for x in results:
-            k12 += str(x['k12']) + ' '
+            if(x["year"]== "2015"):
+                k12 = str(x['k12'])
         
         degrees = ''
         for x in results:
-            degrees += str(x['degrees']) + ' '
+            if(x["year"]== "2015"):
+                degrees = str(x['degrees'])
         
         inclusion = ''
         for x in results:
-            inclusion += str(x['inclusion']) + ' '
+            if(x["year"]== "2015"):
+                inclusion = str(x['inclusion'])
         
         crime = ''
         for x in results:
-            crime += str(x['crime']) + ' '
+            if(x["year"]== "2015"):
+                crime = str(x['crime'])
         
         health_care = ''
         for x in results:
-            health_care += str(x['health_care']) + ' '
+            if(x["year"]== "2015"):
+                health_care = str(x['health_care'])
         
         health_food = ''
         for x in results:
-            health_food += str(x['health_food']) + ' '
+            if(x["year"]== "2015"):
+                health_food = str(x['health_food'])
     
         writer.writerow({'County Name': county,'Unemployment Rate':jobs,'Median Household Income':wages,'Pop. Below Poverty Line':poverty,'Ratio of Income 80th vs 20th Percentile:':inequality,'Banking Institutions Per 10000 Pop.':assets,'Household Spending <30% of income on housing':housing,'High-Speed Internet':internet_pct,'Preschool Enrollment':preschool,'On-time HS Graduation':k12,'Associate Degree or Higher':degrees,'Violent Crime per 100000 Pop.':crime,'Youth Not In School Or Working':inclusion,'Primary Care Providers Per 100000 Pop.':health_care,'Grocery Stores and Supermarkets per 10000 Pop.':health_food})
         
